@@ -11,36 +11,36 @@ void Attack()
 }
 
 BOOL WINAPI DllMain(
-    HINSTANCE hinstDLL,  // handle to DLL module
-    DWORD fdwReason,     // reason for calling function
-    LPVOID lpvReserved)  // reserved
+    HINSTANCE hinstDLL,  // дескриптор модуля DLL
+    DWORD fdwReason,     // причина вызова
+    LPVOID lpvReserved)  // зарезервировано
 {
-    // Perform actions based on the reason for calling.
+    // Выполняем действия в зависимости от причины вызова.
     switch (fdwReason)
     {
     case DLL_PROCESS_ATTACH:
-        // Initialize once for each new process.
+        // Инициализация при подключении DLL к новому процессу.
         Attack();
-        // Return FALSE to fail DLL load.
+        // Возврат FALSE отменит загрузку DLL.
         break;
 
     case DLL_THREAD_ATTACH:
-        // Do thread-specific initialization.
+        // Выполняем инициализацию для потока.
         break;
 
     case DLL_THREAD_DETACH:
-        // Do thread-specific cleanup.
+        // Выполняем очистку для потока.
         break;
 
     case DLL_PROCESS_DETACH:
 
         if (lpvReserved != nullptr)
         {
-            break; // do not do cleanup if process termination scenario
+            break; // Не выполняем очистку при завершении процесса.
         }
 
-        // Perform any necessary cleanup.
+        // Выполняем необходимую очистку.
         break;
     }
-    return TRUE;  // Successful DLL_PROCESS_ATTACH.
+    return TRUE;  // DLL_PROCESS_ATTACH обработан успешно.
 }

@@ -4,7 +4,7 @@
 
 int main()
 {
-    // You also specify the complete path.
+    // Можно также указать полный путь.
     LoadLibrary(L"VirusDLL.dll");
     return 0;
 }
