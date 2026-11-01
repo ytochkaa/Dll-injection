@@ -14,3 +14,5 @@ add_executable(DLLLoader DLLLoader/Source.cpp)
 add_executable(DLLInjectorAsProcess DLLInjectorAsProcess/Source.cpp)
 
 add_executable(ProtectedProcess ProtectedProcess/Source.cpp)
+
+target_compile_definitions(ProtectedProcess PRIVATE _WIN32_WINNT=0x0A00)
