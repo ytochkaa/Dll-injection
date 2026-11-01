@@ -5,6 +5,6 @@
 int main()
 {
     // Можно также указать полный путь.
-    LoadLibrary(L"VirusDLL.dll");
+    LoadLibrary("VirusDLL.dll");
     return 0;
 }

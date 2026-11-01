@@ -38,7 +38,12 @@
 │
 ├── VirusDLL/                  — DLL, которую загружают в целевой процесс (окно BOOM!)
 │   └── Source.cpp
+|
+|
+├── ProtectedProcess/          — процесс-жертва с защитой от загрузки сторонних DLL
+│   └── Source.cpp
 │
+|
 │── .gitignore
 │── CMakeLists.txt
 │── DLLInjectionLinkedIn.sln   — решение Visual Studio; ссылается на отсутствующие .vcxproj
@@ -55,6 +60,8 @@
 ```powershell
 cmake -S . -B build
 cmake --build build
+
+.\TargetProcess.exe 
 ```
 
 Чтобы собрать только целевую программу (жертву):
@@ -75,7 +82,6 @@ cd build
 Оставить процесс запущенным. Во втором окне PowerShell, открытом в корневой папке проекта, перейти в `build`, получить PID процесса и запустить инжектор:
 
 ```powershell
-cd..
 Get-Process TargetProcess | Select-Object Id,ProcessName
 cd build
 .\DLLInjectorAsProcess.exe <PID>
