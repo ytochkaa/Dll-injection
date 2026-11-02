@@ -97,3 +97,5 @@ cd build
 Get-Process TargetProcess -ErrorAction SilentlyContinue | Stop-Process -Force
 Remove-Item -Recurse -Force .\build
 ```
+
+<img width="1068" height="701" alt="image" src="https://github.com/user-attachments/assets/cc10ec32-6876-4e77-9661-6dcfb88f8b2c" />
